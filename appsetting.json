@@ -1,0 +1,9 @@
+{
+    "Blogs": {
+      "ConnectionString": "Server=bitsql.wctc.edu;Database=Blogs_22_rjj;User ID=rjaimes2;Password=000516309"
+    },
+    "_comment": {
+      "##": "last 2 digits of CRN",
+      "XXX": "your initials"
+    }
+  }
