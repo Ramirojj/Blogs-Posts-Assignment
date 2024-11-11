@@ -37,7 +37,7 @@ switch(Console.ReadLine()){
     Blogs();    
 break;
   case "2":  
-   
+   AddingBlog();
                 
 break;
 
@@ -64,7 +64,20 @@ foreach (var item in query)
       Console.WriteLine(item.Name); }
 }
 
+static void AddingBlog(){
+ Console.Write("Enter a name for a new Blog: ");
+ var name = Console.ReadLine();
+ if (string.IsNullOrWhiteSpace(name))
+{
+ Console.WriteLine("Write something .");
+ return; }
+ var db = new DataContext();
+var blog = new Blog { Name = name };
+ db.Blogs.Add(blog);
+db.SaveChanges();
+ Console.WriteLine("Blog added - {0}", name);
 
+}
 
 
 
