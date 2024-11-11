@@ -41,7 +41,8 @@ break;
                 
 break;
 
-  case "3":                  
+  case "3":    
+  CPost();              
 break;
 
   case "4":                  
@@ -63,7 +64,6 @@ foreach (var item in query)
  {
       Console.WriteLine(item.Name); }
 }
-
 static void AddingBlog(){
  Console.Write("Enter a name for a new Blog: ");
  var name = Console.ReadLine();
@@ -78,7 +78,38 @@ db.SaveChanges();
  Console.WriteLine("Blog added - {0}", name);
 
 }
+ static void CPost()
+ {
+ using (var context = new DataContext())
+ {
+var blogs = context.Blogs.ToList();
+if (!blogs.Any())
+ {
+ return;
+  }
+ blogs.ForEach(b => Console.WriteLine($"Blog ID: {b.BlogId}, Name: {b.Name}"));
+ Console.Write("Select Id blog: ");
+ if (!int.TryParse(Console.ReadLine(), out int blogId) || !context.Blogs.Any(b => b.BlogId == blogId))
+ {
+ Console.WriteLine("Invalid.");   
+              return;
+}
 
-
+Console.Write("Enter post title: ");
+var title = Console.ReadLine();
+if (string.IsNullOrWhiteSpace(title))
+ {
+ Console.WriteLine("it nees a titile.");
+return;}
+Console.Write("Enter post content : ");
+var content = Console.ReadLine();
+context.Posts.Add(new Post { BlogId = blogId, Title = title, Content = content });
+context.SaveChanges();
+Console.WriteLine("Post saved.");
+ }
+ }
+ 
+ 
 
 }
+
