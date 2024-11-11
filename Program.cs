@@ -105,7 +105,7 @@ Console.Write("Enter post content : ");
 var content = Console.ReadLine();
 context.Posts.Add(new Post { BlogId = blogId, Title = title, Content = content });
 context.SaveChanges();
-Console.WriteLine("Post saved.");
+Console.WriteLine("Post save.");
  }
  }
  
