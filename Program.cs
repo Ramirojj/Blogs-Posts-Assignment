@@ -1,5 +1,5 @@
-﻿using NLog;
-string path = Directory.GetCurrentDirectory() + "//nlog.config";
+﻿/*
+
 // create instance of Logger
 var logger = LogManager.Setup().LoadConfigurationFromFile(path).GetCurrentClassLogger();
 logger.Info("Program started");
@@ -16,4 +16,23 @@ foreach (var item in query)
 {
   Console.WriteLine(item.Name);
 }
-logger.Info("Program ended");
+logger.Info("Program ended");*/
+using NLog;
+//string path = Directory.GetCurrentDirectory() + "//nlog.config";
+
+class Program {
+    static void Main() {
+       while(true){
+
+Console.WriteLine("Enter a name for a new Blog: ");
+
+
+
+       }
+
+
+    }
+
+
+
+}
